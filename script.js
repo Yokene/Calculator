@@ -114,5 +114,3 @@ reset.addEventListener('click', function(){
     operator = null
     updateDisplay("0")
 })
-
-updateDisplay(count)
