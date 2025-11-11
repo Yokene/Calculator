@@ -1,9 +1,6 @@
 body{
     margin: 0;
-    height: 100%;
-}
 
-body{
     padding: 0;
     align-items: center;
     justify-content: center;
@@ -42,6 +39,19 @@ body{
     transition: 0.3s ease;
     font-family: "Stack Sans Headline", sans-serif;
     user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    /* 1. Убирает синее выделение/подсветку при нажатии (tap-highlight) */
+    -webkit-tap-highlight-color: transparent;
+    
+    /* 2. Отключает возможность выделения текста (предотвращает меню копирования/вставки) */
+    -webkit-touch-callout: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    user-select: none; /* У вас это свойство уже есть, но лучше оставить */
 }
 
 .func-btn{
@@ -64,14 +74,6 @@ body{
     width: 290px;
 }
 
-.calc-button:hover{
-    /* background-color: #e8e8e8; */
-    box-shadow: 3px 3px 10px #00000040;
-}
-
-.func-btn:hover{
-    background-color: #afa0ff;
-}
 
 .screen{
     background-color: #e8e8e8;
@@ -99,4 +101,58 @@ body{
 
 .backspace-img{
     filter: brightness(0);
+}
+
+@media (hover: hover){
+    .calc-button:hover{
+        /* background-color: #e8e8e8; */
+        box-shadow: 3px 3px 10px #00000040;
+    }
+    
+    .func-btn:hover{
+        background-color: #afa0ff;
+    }
+}
+
+@media (hover: none){
+    .calc-button:active{
+        /* background-color: #e8e8e8; */
+        box-shadow: 3px 3px 10px #00000040;
+    }
+    
+    .func-btn:active{
+        background-color: #afa0ff;
+    }
+}
+
+
+
+@media screen and (max-width: 375px){
+    #display{
+        width: 300px;
+        height: 525px;
+    }
+
+    .calc-button{
+        width: 65px;
+        height: 45px;
+        font-size: 20px;
+    }
+
+    .equal{
+        height: 100px;
+    }
+
+    .zero{
+        width: 215px;
+    }
+
+    .screen{
+        width: 270px;
+        height: 35px;
+    }
+
+    .func-btn{
+        font-size: 25px;
+    }
 }
