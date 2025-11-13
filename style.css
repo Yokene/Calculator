@@ -1,6 +1,5 @@
 body{
     margin: 0;
-
     padding: 0;
     align-items: center;
     justify-content: center;
@@ -24,6 +23,7 @@ body{
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
+    transition: 0.3s ease;
 }
 
 .calc-button{
@@ -36,13 +36,12 @@ body{
     border: 0;
     cursor: pointer;
     font-size: 30px;
-    transition: 0.3s ease;
     font-family: "Stack Sans Headline", sans-serif;
     user-select: none;
     display: flex;
     align-items: center;
     justify-content: center;
-
+    transition: 0.3s ease;
 
     /* 1. Убирает синее выделение/подсветку при нажатии (tap-highlight) */
     -webkit-tap-highlight-color: transparent;
@@ -90,6 +89,11 @@ body{
     text-overflow: ellipsis;
     direction: ltr;
     overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.screen-number{
+    padding-right: 50px;
 }
 
 .display-value{
@@ -101,6 +105,18 @@ body{
 
 .backspace-img{
     filter: brightness(0);
+}
+
+.history{
+    color: #e8e8e8;
+    width: 390px;
+    height: 40px;
+    text-align: right;
+    align-items: center;
+    font-size: 30px;
+    margin-right: 10px;
+    transition: 0.3s ease;
+
 }
 
 @media (hover: hover){
@@ -129,28 +145,33 @@ body{
 
 @media screen and (max-width: 475px){
     #display{
-        width: 300px;
-        height: 525px;
-        background-color: blue;
+        width: 340px;
+        height: 565px;
     }
 
     .calc-button{
-        width: 65px;
-        height: 45px;
-        font-size: 20px;
+        width: 75px;
+        height: 55px;
+        font-size: 25px;
     }
 
     .equal{
-        height: 100px;
+        height: 120px;
     }
 
     .zero{
-        width: 215px;
+        width: 245px;
     }
 
     .screen{
-        width: 270px;
+        width: 310px;
         height: 35px;
+    }
+
+    .history{
+        width: 310px;
+        height: 35px;
+        margin-right: 0;
     }
 
     .func-btn{

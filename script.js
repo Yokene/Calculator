@@ -1,5 +1,6 @@
 let count = 0
 
+const historyDisplay = document.querySelector('.history')
 const valueDisplay = document.querySelector('.screen')
 const backspaceBtn = document.querySelector('.backspace-btn')
 const calcButton = document.querySelectorAll('.calc-button')
@@ -65,14 +66,20 @@ calcButton.forEach(button => {
     })
 })
 
+
 equal.addEventListener('click', function(){
+
+    if (operator){
+        historyDisplay.textContent = `${previousNumber} ${operator} ${currentNumber}`
+    }
+
     if (operator === "+") {
         currentNumber = Number(previousNumber) + Number(currentNumber)
     }else if (operator === "−") {
         currentNumber = Number(previousNumber) - Number(currentNumber)
     }else if (operator === "×") {
         currentNumber = Number(previousNumber) * Number(currentNumber)
-    }else if (operator === "/") {
+    }else if (operator === "÷") {
         currentNumber = Number(previousNumber) / Number(currentNumber)
     }
 
@@ -84,7 +91,7 @@ equal.addEventListener('click', function(){
         return;
 
     }
-    
+
     updateDisplay(currentNumber)
     previousNumber = currentNumber
     operator = null
@@ -111,6 +118,7 @@ backspaceBtn.addEventListener('click', function(){
 reset.addEventListener('click', function(){
     currentNumber = ""
     previousNumber = ""
+    historyDisplay.textContent = ""
     operator = null
     updateDisplay("0")
 })
